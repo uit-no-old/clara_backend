@@ -1,3 +1,4 @@
 apiVersion: v1
 name: clara
 version: 1.0.0
+fullname: clara-backend
