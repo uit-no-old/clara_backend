@@ -1,0 +1,4 @@
+dependencies:
+  - name: mongodb
+    version: 4.0.6
+    repository: stable/mongodb
