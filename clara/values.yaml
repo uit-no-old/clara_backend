@@ -4,3 +4,6 @@ service:
   internalPort: 5000
   name: CLARA backend
   component: "clara-backend"
+imagePullPolicy: always
+cpu: "10m"
+memory: "128Mi"
