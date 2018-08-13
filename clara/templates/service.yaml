@@ -7,15 +7,15 @@ metadata:
     release: {{.Release.Name | quote }}
     chart: "{{.Chart.Name}}-{{.Chart.Version}}"
     component: "{{.Release.Name}}-{{.Values.service.component}}"
-  spec:
-    type: {{ .Values.service.type }}
-    ports:
-     - port: {{ .Values.service.externalPort }}
-       targetPort: {{ .Values.service.internalPort }}
-       protocol: TCP
-       name: {{ .Values.service.name }}
-    selector:
-      component: "{{.Release.Name}}-{{.Values.service.component}}"
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+   - port: {{ .Values.service.externalPort }}
+     targetPort: {{ .Values.service.internalPort }}
+     protocol: TCP
+     name: {{ .Values.service.name }}
+  selector:
+    component: "{{.Release.Name}}-{{.Values.service.component}}"
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment
