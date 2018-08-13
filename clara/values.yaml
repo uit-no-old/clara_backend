@@ -2,8 +2,13 @@ service:
   type: ClusterIP
   externalPort: 80
   internalPort: 5000
-  name: CLARA backend
-  component: "clara-backend"
-imagePullPolicy: always
-cpu: "10m"
-memory: "128Mi"
+  name: CLARA
+  component: "clara"
+deployment:
+  replicas: 1
+  imagePullPolicy: always
+  cpu: "10m"
+  memory: "128Mi"
+  image: clara-backend
+  imageTag: latest
+  containerPort: 5000

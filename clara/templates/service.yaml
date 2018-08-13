@@ -6,7 +6,7 @@ metadata:
     heritage: {{.Release.Service | quote }}
     release: {{.Release.Name | quote }}
     chart: "{{.Chart.Name}}-{{.Chart.Version}}"
-    component: "{{.Release.Name}}-{{.Values.component}}"
+    component: "{{.Release.Name}}-{{.Values.service.component}}"
   spec:
     type: {{ .Values.service.type }}
     ports:
@@ -15,7 +15,7 @@ metadata:
       protocol: TCP
       name: {{ .Values.service.name }}
     selector:
-      component: "{{.Release.Name}}-{{.Values.component}}"
+      component: "{{.Release.Name}}-{{.Values.service.component}}"
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment
@@ -25,33 +25,32 @@ metadata:
     heritage: {{.Release.Service | quote }}
     release: {{.Release.Name | quote }}
     chart: "{{.Chart.Name}}-{{.Chart.Version}}"
-    component: "{{.Release.Name}}-{{.Values.component}}"
+    component: "{{.Release.Name}}-{{.Values.service.component}}"
 spec:
-  replicas: {{ default 1 .Values.replicas }}
+  replicas: {{ default 1 .Values.deployment.replicas }}
   strategy:
     type: RollingUpdate
   selector:
     matchLabels:
-      component: "{{.Release.Name}}-{{.Values.component}}"
+      component: "{{.Release.Name}}-{{.Values.service.component}}"
   template:
     metadata:
       labels:
         heritage: {{.Release.Service | quote }}
         release: {{.Release.Name | quote }}
         chart: "{{.Chart.Name}}-{{.Chart.Version}}"
-        component: "{{.Release.Name}}-{{.Values.component}}"
+        component: "{{.Release.Name}}-{{.Values.service.component}}"
     spec:
       containers:
         - name: {{ template "fullname" . }}
-          image: "{{.Values.image}}:{{.Values.imageTag}}"
-          imagePullPolicy: "{{.Values.imagePullPolicy}}"
+          image: "{{.Values.deployment.image}}:{{.Values.deployment.imageTag}}"
           ports:
           - name: http
-            containerPort: {{.Values.containerPort}}
+            containerPort: {{.Values.deployment.containerPort}}
           resources:
             requests:
-              cpu: "{{.Values.cpu}}"
-              memory: "{{.Values.memory}}"
+              cpu: "{{.Values.deployment.cpu}}"
+              memory: "{{.Values.deployment.memory}}"
           env:
           - name: WORKFLOW_RELEASE
             value: {{.Release.Name | quote }}
