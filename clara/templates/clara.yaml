@@ -42,7 +42,7 @@ spec:
     spec:
       containers:
         - name: {{ template "fullname" . }}
-          image: "{{.Values.deployment.image}}:{{.Values.deployment.imageTag}}"
+          image: "{{.Values.image}}:{{.Values.image.tag}}"
           ports:
            - name: http
              containerPort: {{.Values.deployment.containerPort}}

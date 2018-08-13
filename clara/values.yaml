@@ -9,6 +9,4 @@ deployment:
   imagePullPolicy: always
   cpu: "10m"
   memory: "128Mi"
-  image: clara-backend
-  imageTag: latest
   containerPort: 5000
