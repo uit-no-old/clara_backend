@@ -1,4 +1,5 @@
-#dependencies:
-#  - name: mongodb
-#    version: 4.0.6
-#    repository: stable/mongodb
+dependencies:
+  - name: mongodb
+    repository: stable/mongodb
+  - name: nginx-ingress
+    repository: stable/nginx-ingress
