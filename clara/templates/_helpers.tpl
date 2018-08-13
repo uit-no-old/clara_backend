@@ -1,7 +1,8 @@
+{{/* vim: set filetype=mustache: */}}
+
 {{/*
 Create a default fully qualified app name.
 */}}
 {{- define "fullname" -}}
-{{- $name := default .Chart.Name .Values.nameOverride -}}
-{{- printf "%s" .Release.Name | trunc 63 | trimSuffix "-" -}}
+{{- printf "%s-%s" .Release.Name .Chart.Name | trunc 63 | trimSuffix "-" -}}
 {{- end -}}

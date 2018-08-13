@@ -3,3 +3,4 @@ service:
   externalPort: 80
   internalPort: 5000
   name: CLARA backend
+  component: "clara-backend"

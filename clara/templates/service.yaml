@@ -4,6 +4,7 @@ metadata:
   name: {{ template "fullname" . }}
   labels:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
+    component: "{{.Release.Name}}-{{.Values.component}}"
   spec:
     type: {{ .Values.service.type }}
     ports:
@@ -12,4 +13,4 @@ metadata:
       protocol: TCP
       name: {{ .Values.service.name }}
     selector:
-      app: {{ template "fullname" . }}
+      component: "{{.Release.Name}}-{{.Values.component}}"
