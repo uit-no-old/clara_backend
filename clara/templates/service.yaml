@@ -24,7 +24,6 @@ metadata:
   labels:
     heritage: {{.Release.Service | quote }}
     release: {{.Release.Name | quote }}
-    #commit: "{{ .Values.commit.sha }}"
     chart: "{{.Chart.Name}}-{{.Chart.Version}}"
     component: "{{.Release.Name}}-{{.Values.component}}"
 spec:
@@ -42,10 +41,6 @@ spec:
         chart: "{{.Chart.Name}}-{{.Chart.Version}}"
         component: "{{.Release.Name}}-{{.Values.component}}"
     spec:
-#      {{- if .Values.imagePullSecrets }}
-#      imagePullSecrets:
-#        - name: {{ .Values.imagePullSecrets.name }}
-#      {{- end }}
       containers:
         - name: {{ template "fullname" . }}
           image: "{{.Values.image}}:{{.Values.imageTag}}"
@@ -60,11 +55,3 @@ spec:
           env:
           - name: WORKFLOW_RELEASE
             value: {{.Release.Name | quote }}
-#          livenessProbe:
-#            httpGet:
-#              path: /healthz
-#              port: http
-#          readinessProbe:
-#            httpGet:
-#              path: /healthz
-#              port: http
