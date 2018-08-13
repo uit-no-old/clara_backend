@@ -1,5 +1,5 @@
 dependencies:
-  - name: mongodb
-    repository: stable/mongodb
-  - name: nginx-ingress
-    repository: stable/nginx-ingress
+  - name: stable/mongodb
+    repository: https://kubernetes-charts.storage.googleapis.com/
+  - name: stable/nginx-ingress
+    repository: https://kubernetes-charts.storage.googleapis.com/
