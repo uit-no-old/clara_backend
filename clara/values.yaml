@@ -14,7 +14,7 @@ deployment:
 ## Ingress settings
 ingress:
   enabled: true
-  hostname: 13.68.131.17
+  hostname: clara-backend.eastus.cloudapp.azure.com
   annotations:
      kubernetes.io/ingress.class: nginx
      certmanager.k8s.io/cluster-issuer: letsencrypt-prod
