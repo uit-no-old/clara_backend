@@ -1,5 +1,6 @@
-dependencies:
-  - name: mongodb
-    alias: stable
-  - name: nginx-ingress
-    alias: stable
+#dependencies:
+#  - name: mongodb
+#    alias: stable
+#  - name: nginx-ingress
+#    alias: stable
+#
