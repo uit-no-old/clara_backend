@@ -53,3 +53,8 @@ spec:
           env:
            - name: WORKFLOW_RELEASE
              value: {{.Release.Name | quote }}
+           - name: MONGO_PASSWORD
+             valueFrom:
+               secretKeyRef:
+                 name: sweet-ostrich-mongodb
+                 key: mongodb-root-password
