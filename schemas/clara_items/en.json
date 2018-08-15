@@ -1,0 +1,345 @@
+[
+  {
+    "main_scale": "Belonging",
+    "itembank_id": "q3",
+    "presenting_order": 7,
+    "clara_item": "I have at least one person close to me who I can turn to for guidance in my learning.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Belonging",
+    "itembank_id": "q49",
+    "presenting_order": 17,
+    "clara_item": "I know at least one person in my community/social network who I can turn to for guidance in my learning.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Belonging",
+    "itembank_id": "q63",
+    "presenting_order": 45,
+    "clara_item": "There is at least one person close to me who has helped me to learn.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Collaboration",
+    "itembank_id": "q44",
+    "presenting_order": 6,
+    "clara_item": "I find it helps me to learn if I can talk about it with colleagues.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Collaboration",
+    "itembank_id": "q46",
+    "presenting_order": 35,
+    "clara_item": "I like talking through challenging problems with friends.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Collaboration",
+    "itembank_id": "q30",
+    "presenting_order": 48,
+    "clara_item": "I enjoy solving problems together with other people.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Creativity",
+    "itembank_id": "q26",
+    "presenting_order": 1,
+    "clara_item": "I tend to use my imagination to help me learn.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Creativity",
+    "itembank_id": "q23",
+    "presenting_order": 9,
+    "clara_item": "I enjoy trying out new ways of learning.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Creativity",
+    "itembank_id": "q78",
+    "presenting_order": 11,
+    "clara_item": "Sometimes good ideas just come into my head.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Creativity",
+    "itembank_id": "q37",
+    "presenting_order": 16,
+    "clara_item": "Often it is when I let my mind ‘float free’ that my best ideas come to me.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Creativity",
+    "itembank_id": "q24",
+    "presenting_order": 29,
+    "clara_item": "When my learning gets tedious I am good at finding ways to make it interesting.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Creativity",
+    "itembank_id": "q45",
+    "presenting_order": 31,
+    "clara_item": "I feel it's all right to experiment with new ways of learning.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Creativity",
+    "itembank_id": "q65",
+    "presenting_order": 39,
+    "clara_item": "I like to try out new ways of doing things even if there is very little time.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Creativity",
+    "itembank_id": "q27",
+    "presenting_order": 41,
+    "clara_item": "Sometimes if I stop and wait good ideas just arrive in my head.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Curiosity",
+    "itembank_id": "q1",
+    "presenting_order": 2,
+    "clara_item": "I prefer learning something when I have to try really hard to understand it.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Curiosity",
+    "itembank_id": "q94",
+    "presenting_order": 5,
+    "clara_item": "I think it is fun to increase my understanding about the subject matter.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Curiosity",
+    "itembank_id": "q40",
+    "presenting_order": 22,
+    "clara_item": "I enjoy a challenge.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Curiosity",
+    "itembank_id": "q29",
+    "presenting_order": 33,
+    "clara_item": "I find learning more interesting if it is hard.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Curiosity",
+    "itembank_id": "q95",
+    "presenting_order": 38,
+    "clara_item": "It is fascinating to me to learn new information.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Curiosity",
+    "itembank_id": "q17",
+    "presenting_order": 47,
+    "clara_item": "I am more stimulated by interesting questions than easy answers.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Hope & Optimism",
+    "itembank_id": "q38",
+    "presenting_order": 13,
+    "clara_item": "I have a sense of myself getting better at learning.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Hope & Optimism",
+    "itembank_id": "q90",
+    "presenting_order": 24,
+    "clara_item": "I know I am changing and growing over time.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Hope & Optimism",
+    "itembank_id": "q36",
+    "presenting_order": 49,
+    "clara_item": "I am getting better at learning all the time.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Mindful Agency",
+    "itembank_id": "q14",
+    "presenting_order": 3,
+    "clara_item": "I can generally predict how long it will take me to learn something.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Mindful Agency",
+    "itembank_id": "q76",
+    "presenting_order": 10,
+    "clara_item": "I know I can find a way of solving a problem if I have enough time to think ",
+    "language": "en"
+  },
+  {
+    "main_scale": "Mindful Agency",
+    "itembank_id": "q19",
+    "presenting_order": 15,
+    "clara_item": "I know I can learn in my own way, even if my colleagues think it’s a waste of time",
+    "language": "en"
+  },
+  {
+    "main_scale": "Mindful Agency",
+    "itembank_id": "q60",
+    "presenting_order": 23,
+    "clara_item": "I think about everything that I will need before I begin a task.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Mindful Agency",
+    "itembank_id": "q69",
+    "presenting_order": 26,
+    "clara_item": "I have ways of making myself learn if I don’t feel like learning.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Mindful Agency",
+    "itembank_id": "q68",
+    "presenting_order": 34,
+    "clara_item": "I enjoy improving the way I go about things",
+    "language": "en"
+  },
+  {
+    "main_scale": "Mindful Agency",
+    "itembank_id": "q53",
+    "presenting_order": 36,
+    "clara_item": "If I get distressed when I’m learning, I’m pretty good at finding ways of feeling better.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Mindful Agency",
+    "itembank_id": "q51",
+    "presenting_order": 43,
+    "clara_item": "I know that if something is important I can find a way to learn it",
+    "language": "en"
+  },
+  {
+    "main_scale": "Mindful Agency",
+    "itembank_id": "q58",
+    "presenting_order": 46,
+    "clara_item": "If I find something really hard to learn, I usually think it’s because I’m not very intelligent.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Openness to Learning",
+    "itembank_id": "q32",
+    "presenting_order": 14,
+    "clara_item": "I can learn things well when other people help me.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Openness to Learning",
+    "itembank_id": "q84",
+    "presenting_order": 18,
+    "clara_item": "I find it difficult to know what to do when I get stuck.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Openness to Learning",
+    "itembank_id": "q16",
+    "presenting_order": 20,
+    "clara_item": "I find learning difficult when I am not told how to go about it.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Openness to Learning",
+    "itembank_id": "q80",
+    "presenting_order": 21,
+    "clara_item": "I find learning difficult when I am not told how to go about it.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Openness to Learning",
+    "itembank_id": "q20",
+    "presenting_order": 25,
+    "clara_item": "If I cannot learn something it's generally because I haven't figured out how to approach it.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Openness to Learning",
+    "itembank_id": "q28",
+    "presenting_order": 28,
+    "clara_item": "If I am struggling to understand something I tend to give up after a while.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Openness to Learning",
+    "itembank_id": "q18",
+    "presenting_order": 30,
+    "clara_item": "Because I dislike feelings of confusion and uncertainty I generally steer clear of  learning something new. ",
+    "language": "en"
+  },
+  {
+    "main_scale": "Openness to Learning",
+    "itembank_id": "q85",
+    "presenting_order": 32,
+    "clara_item": "I need positive comments from a tutor or mentor in order to keep trying.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Openness to Learning",
+    "itembank_id": "q87",
+    "presenting_order": 37,
+    "clara_item": "I am happier learning when I have clear instructions.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Openness to Learning",
+    "itembank_id": "q50",
+    "presenting_order": 42,
+    "clara_item": "I often get quite upset if I find learning too difficult.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Sense Making",
+    "itembank_id": "q33",
+    "presenting_order": 4,
+    "clara_item": "I enjoy learning about things I care a lot about.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Sense Making",
+    "itembank_id": "q73",
+    "presenting_order": 8,
+    "clara_item": "I make connections between what I am learning and what I have learned before.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Sense Making",
+    "itembank_id": "q8",
+    "presenting_order": 12,
+    "clara_item": "Remembering what I already know often helps me to learn something new.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Sense Making",
+    "itembank_id": "q25",
+    "presenting_order": 19,
+    "clara_item": "I prefer learning something when I have a good reason to do so.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Sense Making",
+    "itembank_id": "q54",
+    "presenting_order": 27,
+    "clara_item": "What I learn often leads to me doing things differently.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Sense Making",
+    "itembank_id": "q31",
+    "presenting_order": 40,
+    "clara_item": "I enjoy learning something new when I understand its relevance in my life.",
+    "language": "en"
+  },
+  {
+    "main_scale": "Sense Making",
+    "itembank_id": "q83",
+    "presenting_order": 44,
+    "clara_item": "I often look back and think about what I have learned.",
+    "language": "en"
+  }
+]

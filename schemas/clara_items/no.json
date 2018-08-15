@@ -1,0 +1,345 @@
+[
+  {
+    "main_scale": "Belonging",
+    "itembank_id": "q3",
+    "presenting_order": 7,
+    "clara_item": "Det er minst en nær person jeg kan kontakte for å få veiledning i min læring.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Belonging",
+    "itembank_id": "q49",
+    "presenting_order": 17,
+    "clara_item": "Det er minst en person i mitt sosiale nettverk som kan veilede meg i min læring. ",
+    "language": "no"
+  },
+  {
+    "main_scale": "Belonging",
+    "itembank_id": "q63",
+    "presenting_order": 45,
+    "clara_item": "Det er minst en nær person som har hjulpet meg å lære.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Collaboration",
+    "itembank_id": "q44",
+    "presenting_order": 6,
+    "clara_item": "Å snakke med medstudenter gjør læring enklere.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Collaboration",
+    "itembank_id": "q46",
+    "presenting_order": 35,
+    "clara_item": "Jeg liker å snakke med venner om utfordrende læringsoppgaver.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Collaboration",
+    "itembank_id": "q30",
+    "presenting_order": 48,
+    "clara_item": "Jeg liker å løse læringsoppgaver sammen med andre.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Creativity",
+    "itembank_id": "q26",
+    "presenting_order": 1,
+    "clara_item": "Jeg bruker ofte min fantasi for å hjelpe meg å lære.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Creativity",
+    "itembank_id": "q23",
+    "presenting_order": 9,
+    "clara_item": "Jeg liker å prøve ut nye måter å gjøre ting på.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Creativity",
+    "itembank_id": "q78",
+    "presenting_order": 11,
+    "clara_item": "Noen ganger oppstår gode ideer i hode mitt.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Creativity",
+    "itembank_id": "q37",
+    "presenting_order": 16,
+    "clara_item": "Når jeg lar tankene fare, flyte fritt, det er da de beste ideene mine kommer.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Creativity",
+    "itembank_id": "q24",
+    "presenting_order": 29,
+    "clara_item": "Når læringen blir langtekkelig, er jeg god til å finne måter som gjør læringen interessant.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Creativity",
+    "itembank_id": "q45",
+    "presenting_order": 31,
+    "clara_item": "Jeg synes det er greit å prøve ut nye måter å lære på.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Creativity",
+    "itembank_id": "q65",
+    "presenting_order": 39,
+    "clara_item": "Jeg liker å prøve ut nye måter å gjøre ting på, selv om tiden er knapp.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Creativity",
+    "itembank_id": "q27",
+    "presenting_order": 41,
+    "clara_item": "Noen ganger oppstår gode ideer i hode mitt.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Curiosity",
+    "itembank_id": "q1",
+    "presenting_order": 2,
+    "clara_item": "Jeg foretrekker å lære når jeg må prøve hardt for å forstå.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Curiosity",
+    "itembank_id": "q94",
+    "presenting_order": 5,
+    "clara_item": "Jeg tenker det er en glede i å øke min forståelse.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Curiosity",
+    "itembank_id": "q40",
+    "presenting_order": 22,
+    "clara_item": "Jeg liker en utfordring.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Curiosity",
+    "itembank_id": "q29",
+    "presenting_order": 33,
+    "clara_item": "Læringen er mer intressant hvis den er utfordrende.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Curiosity",
+    "itembank_id": "q95",
+    "presenting_order": 38,
+    "clara_item": "For meg er det fascinerende å lære noe nytt.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Curiosity",
+    "itembank_id": "q17",
+    "presenting_order": 47,
+    "clara_item": "Jeg blir mer inspirert av interessante spørsmål, enn lette svar",
+    "language": "no"
+  },
+  {
+    "main_scale": "Hope & Optimism",
+    "itembank_id": "q38",
+    "presenting_order": 13,
+    "clara_item": "Jeg føler jeg blir bedre til å lære.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Hope & Optimism",
+    "itembank_id": "q90",
+    "presenting_order": 24,
+    "clara_item": "Jeg vet jeg utvikler meg over tid.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Hope & Optimism",
+    "itembank_id": "q36",
+    "presenting_order": 49,
+    "clara_item": "Jeg blir stadig bedre til å lære.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Mindful Agency",
+    "itembank_id": "q14",
+    "presenting_order": 3,
+    "clara_item": "Jeg kan forutsi hvor lang tid det vil ta meg å lære noe.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Mindful Agency",
+    "itembank_id": "q76",
+    "presenting_order": 10,
+    "clara_item": "Hvis jeg får tid på meg, så vet jeg hvordan jeg kan løse ett problem.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Mindful Agency",
+    "itembank_id": "q19",
+    "presenting_order": 15,
+    "clara_item": "Jeg er nøyaktig og logisk i min tilnærming til å lære.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Mindful Agency",
+    "itembank_id": "q60",
+    "presenting_order": 23,
+    "clara_item": "Jeg vet jeg kan lære på min egen måte, selv om mine medstudenter synes min måte er tungvint.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Mindful Agency",
+    "itembank_id": "q69",
+    "presenting_order": 26,
+    "clara_item": "Før jeg begynner å løse læringsoppgaven tenker jeg på hva jeg har behov for.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Mindful Agency",
+    "itembank_id": "q68",
+    "presenting_order": 34,
+    "clara_item": "Selv om jeg har lite lyst på å lære, så vet jeg hvordan jeg kan komme i gang med læringen.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Mindful Agency",
+    "itembank_id": "q53",
+    "presenting_order": 36,
+    "clara_item": "Jeg synes det er gøy å forbedre måten jeg gjør ting på.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Mindful Agency",
+    "itembank_id": "q51",
+    "presenting_order": 43,
+    "clara_item": "Hvis jeg blir usikker/engstelig for å mislykkes, så vet jeg hva jeg skal gjøre for å føle meg bedre.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Mindful Agency",
+    "itembank_id": "q58",
+    "presenting_order": 46,
+    "clara_item": "Jeg vet at hvis noe er viktig å lære, så finner jeg en måte å lære det på.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Openness to Learning",
+    "itembank_id": "q32",
+    "presenting_order": 14,
+    "clara_item": "Hvis noe er vanskelig å forstå tenker jeg ofte at årsaken er at jeg ikke er så intelligent.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Openness to Learning",
+    "itembank_id": "q84",
+    "presenting_order": 18,
+    "clara_item": "Jeg er god til å lære når jeg får hjelp fra andre.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Openness to Learning",
+    "itembank_id": "q16",
+    "presenting_order": 20,
+    "clara_item": "Det er vanskelig å vite hva jeg skal gjøre når jeg står fast i læringen.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Openness to Learning",
+    "itembank_id": "q80",
+    "presenting_order": 21,
+    "clara_item": "Jeg synes det å lære er vanskelig, når jeg ikke blir fortalt hvordan jeg skal løse oppgavene.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Openness to Learning",
+    "itembank_id": "q20",
+    "presenting_order": 25,
+    "clara_item": "Når jeg ikke greier å løse læringsoppgavene så er det fordi jeg ikke vet hvordan jeg skal angripe problemet.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Openness to Learning",
+    "itembank_id": "q28",
+    "presenting_order": 28,
+    "clara_item": "Hvis jeg strever med læringsoppgavene gir jeg raskt opp.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Openness to Learning",
+    "itembank_id": "q18",
+    "presenting_order": 30,
+    "clara_item": "Jeg misliker følelsene av forvirring og usikkerhet, derfor styrer jeg unna det å lære noe nytt.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Openness to Learning",
+    "itembank_id": "q85",
+    "presenting_order": 32,
+    "clara_item": "For å fortsette med å gjøre forsøk på å løse en læringsoppgave, trenger jeg oppmuntring fra lærer.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Openness to Learning",
+    "itembank_id": "q87",
+    "presenting_order": 37,
+    "clara_item": "Jeg liker bedre å lære når instruksjonene er klare/tydelige.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Openness to Learning",
+    "itembank_id": "q50",
+    "presenting_order": 42,
+    "clara_item": "Jeg blir ofte lei meg når jeg opplever at det å lære er vanskelig.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Sense Making",
+    "itembank_id": "q33",
+    "presenting_order": 4,
+    "clara_item": "Jeg liker å lære om det som betyr mye for meg.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Sense Making",
+    "itembank_id": "q73",
+    "presenting_order": 8,
+    "clara_item": "Jeg lager/ser forbindelser mellom det jeg lærer og hva jeg har lært tidligere.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Sense Making",
+    "itembank_id": "q8",
+    "presenting_order": 12,
+    "clara_item": "Å huske hva jeg allerede kan, hjelper meg til å lære det nye lærestoffet.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Sense Making",
+    "itembank_id": "q25",
+    "presenting_order": 19,
+    "clara_item": "Jeg foretrekker å lære det som er fornuftig å lære.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Sense Making",
+    "itembank_id": "q54",
+    "presenting_order": 27,
+    "clara_item": "Når jeg lærer så fører det ofte til at jeg gjør ting annerledes.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Sense Making",
+    "itembank_id": "q31",
+    "presenting_order": 40,
+    "clara_item": "Jeg liker å lære noe nytt når jeg forstår at det er relevant for mitt liv.",
+    "language": "no"
+  },
+  {
+    "main_scale": "Sense Making",
+    "itembank_id": "q83",
+    "presenting_order": 44,
+    "clara_item": "Jeg tenker ofte over det jeg har lært.",
+    "language": "no"
+  }
+]
