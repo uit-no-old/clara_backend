@@ -43,6 +43,8 @@ spec:
       containers:
         - name: {{ template "fullname" . }}
           image: "{{.Values.image.repository}}:{{.Values.image.tag}}"
+          tty: true
+          stdin: true
           ports:
            - name: http
              containerPort: {{.Values.deployment.containerPort}}
