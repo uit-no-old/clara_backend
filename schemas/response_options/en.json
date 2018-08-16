@@ -1,0 +1,32 @@
+[
+  {
+    "response_string": "No, not at all like me",
+    "response_number": 1,
+    "language": "en"
+  },
+  {
+    "response_string": "Not very much like me",
+    "response_number": 2,
+    "language": "en"
+  },
+  {
+    "response_string": "A little bit like me",
+    "response_number": 3,
+    "language": "en"
+  },
+  {
+    "response_string": "Quite like me",
+    "response_number": 4,
+    "language": "en"
+  },
+  {
+    "response_string": "Quite a lot like me",
+    "response_number": 5,
+    "language": "en"
+  },
+  {
+    "response_string": "Yes, very much like me ",
+    "response_number": 6,
+    "language": "en"
+  }
+]

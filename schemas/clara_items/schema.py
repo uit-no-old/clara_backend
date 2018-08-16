@@ -1,4 +1,4 @@
-schema_clara_item = {
+schema = {
     # Schema definition, of the CLARA items.
     'main_scale': {
         'type': 'string',
@@ -39,10 +39,10 @@ clara_items = {
     # '/people/<ObjectId>'. We leave it untouched, and we also enable an
     # additional read-only entry point. This way consumers can also perform
     # GET requests at '/people/<lastname>'.
-    'additional_lookup': {
-        'url': 'regex("[\w]+")',
-        'field': 'language'
-    },
+    # 'additional_lookup': {
+    #     'url': 'regex("[\w]+")',
+    #     'field': 'language'
+    # },
 
     # We choose to override global cache-control directives for this resource.
     'cache_control': 'max-age=10,must-revalidate',
@@ -51,5 +51,5 @@ clara_items = {
     # most global settings can be overridden at resource level
     'resource_methods': ['GET', 'POST'],
 
-    'schema': schema_clara_item
+    'schema': schema
 }
