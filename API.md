@@ -1,8 +1,10 @@
 # API documentation
 
-# Student classes (studentkull)
-GET https://clara-backend.eastus.cloudapp.azure.com/student_classes
-POST https://clara-backend.eastus.cloudapp.azure.com/student_classes
+## Student classes (studentkull)
+
+- GET https://clara-backend.eastus.cloudapp.azure.com/student_classes
+- POST https://clara-backend.eastus.cloudapp.azure.com/student_classes
+
 Example JSON:
 ```
 [
@@ -12,17 +14,21 @@ Example JSON:
 ]
 ```
 
-# Reponse options
-GET https://clara-backend.eastus.cloudapp.azure.com/response_options?where={"language":"no"}
-Possible values: no, en
+## Reponse options
 
-# Clara items (the questions)
-GET https://clara-backend.eastus.cloudapp.azure.com/clara_items?where={"language":"no"}
-Possible values: no, en
+- GET https://clara-backend.eastus.cloudapp.azure.com/response_options?where={"language":"no"}
+  - Possible values: no, en
 
-# Clara reponses (the filled out question forms)
-GET http://localhost:5000/clara_responses?embedded={"student_classes":1,"clara_items.clara_item":1,"clara_items.response_option":1}
-POST https://clara-backend.eastus.cloudapp.azure.com/clara_responses
+## Clara items (the questions)
+
+- GET https://clara-backend.eastus.cloudapp.azure.com/clara_items?where={"language":"no"}
+  - Possible values: no, en
+
+## Clara reponses (the filled out question forms)
+
+- GET http://localhost:5000/clara_responses?embedded={"student_classes":1,"clara_items.clara_item":1,"clara_items.response_option":1}
+- POST https://clara-backend.eastus.cloudapp.azure.com/clara_responses
+
 Example JSON:
 ```
 [
