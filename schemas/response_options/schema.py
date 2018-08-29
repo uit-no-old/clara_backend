@@ -1,5 +1,5 @@
 schema = {
-    # Schema definition, of the CLARA items.
+    # Schema definition, of thepossible response options.
     'response_string': {
         'type': 'string',
         'minlength': 1,

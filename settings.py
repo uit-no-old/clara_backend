@@ -1,6 +1,8 @@
 import os
 import schemas.clara_items.schema as clara_items_schema
 import schemas.response_options.schema as response_options_schema
+import schemas.student_classes.schema as student_classes_schema
+import schemas.clara_responses.schema as clara_responses_schema
 
 azure = False
 try:
@@ -18,7 +20,7 @@ if azure:
     MONGO_USERNAME="root"
     MONGO_PASSWORD=os.environ["MONGO_PASSWORD"]
     MONGO_AUTH_SOURCE = "admin"
-    MONGO_REPLICA_SET = "rsname"
+    # MONGO_REPLICA_SET = "rsname"
 else:
     DEBUG=True
     MONGO_HOST="localhost"
@@ -36,5 +38,7 @@ ITEM_METHODS = ['GET']
 
 DOMAIN = {
     'clara_items': clara_items_schema.clara_items,
-    'response_options': response_options_schema.response_options
+    'response_options': response_options_schema.response_options,
+    'student_classes': student_classes_schema.student_classes,
+    'clara_responses': clara_responses_schema.clara_responses
 }
