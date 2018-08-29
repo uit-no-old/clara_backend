@@ -37,6 +37,19 @@ schema = {
     }
 }
 
+# ,
+# 'score': {
+#     'type': 'list',
+#     'readonly': True,
+#     'schema': {
+#         'type': 'dict',
+#         'schema': {
+#             'main_scale': {'type': 'string', 'readonly': True},
+#             'scale_score': {'type': 'integer', 'readonly': True}
+#         }
+#     }
+# }
+
 clara_responses = {
     # 'title' tag used in item links. Defaults to the resource title minus
     # the final, plural 's' (works fine in most cases but not for 'people')
