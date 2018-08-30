@@ -7,7 +7,7 @@ from flask import current_app, url_for, request, redirect, session
 class OAuthSignIn(object):
     providers = None
 
-    def __init__(self, provider_name):
+    def __init__(self, provider_name='dataporten'):
         self.provider_name = provider_name
         credentials = current_app.config['OAUTH_CREDENTIALS'][provider_name]
         self.consumer_id = credentials['id']
