@@ -60,3 +60,18 @@ spec:
                secretKeyRef:
                  name: sweet-ostrich-mongodb
                  key: mongodb-root-password
+           - name: DATAPORTEN_CLIENT_ID
+             valueFrom:
+               secretKeyRef:
+                 name: dataporten
+                 key: client_id
+           - name: DATAPORTEN_CLIENT_SECRET
+             valueFrom:
+               secretKeyRef:
+                 name: dataporten
+                 key: client_secret
+           - name: DATAPORTEN_SECRET_KEY
+             valueFrom:
+               secretKeyRef:
+                 name: dataporten
+                 key: secret_key
