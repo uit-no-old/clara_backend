@@ -43,9 +43,9 @@ def load_user(id):
     return User.query.get(int(id))
 
 
-@app.route('/')
+@app.route('/dataporten')
 def index():
-    return render_template('index.html')
+    return render_template('dataporten.html')
 
 
 @app.route('/logout')
