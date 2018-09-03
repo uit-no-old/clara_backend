@@ -58,6 +58,7 @@ class DataportenSignIn(BasicAuth):
         return userinfo['user']['userid'], response['access_token']
 
     def get_callback_url(self):
+        #TODO: This may not be the best check for Azure environment
         try:
             os.environ["MONGO_PASSWORD"]
             return url_for('oauth_callback', provider=self.provider_name, _external=True, _scheme="https")
