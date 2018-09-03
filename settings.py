@@ -20,7 +20,6 @@ if azure:
     MONGO_USERNAME="root"
     MONGO_PASSWORD=os.environ["MONGO_PASSWORD"]
     MONGO_AUTH_SOURCE = "admin"
-    # MONGO_REPLICA_SET = "rsname"
 else:
     DEBUG=True
     MONGO_HOST="localhost"

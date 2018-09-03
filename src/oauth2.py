@@ -1,47 +1,30 @@
 import json
+import os
 
-from rauth import OAuth1Service, OAuth2Service
-from flask import current_app, url_for, request, redirect, session
+from eve.auth import BasicAuth
+from rauth import OAuth2Service
+from flask import url_for, request, redirect, Response, abort
 
+from redis import StrictRedis
 
-class OAuthSignIn(object):
-    providers = None
-
-    def __init__(self, provider_name='dataporten'):
-        self.provider_name = provider_name
-        credentials = current_app.config['OAUTH_CREDENTIALS'][provider_name]
-        self.consumer_id = credentials['id']
-        self.consumer_secret = credentials['secret']
-
-    def authorize(self):
-        pass
-
-    def callback(self):
-        pass
-
-    def get_callback_url(self):
-        return url_for('oauth_callback', provider=self.provider_name, _external=True, _scheme='https')
-
-    @classmethod
-    def get_provider(self, provider_name):
-        if self.providers is None:
-            self.providers = {}
-            for provider_class in self.__subclasses__():
-                provider = provider_class()
-                self.providers[provider.provider_name] = provider
-        return self.providers[provider_name]
-
-class DataportenSignIn(OAuthSignIn):
+class DataportenSignIn(BasicAuth):
     def __init__(self):
-        super(DataportenSignIn, self).__init__('dataporten')
+        super(DataportenSignIn, self).__init__()
+
+        self.provider_name = 'dataporten'
+        self.consumer_id = os.environ['DATAPORTEN_CLIENT_ID']
+        self.consumer_secret = os.environ['DATAPORTEN_CLIENT_SECRET']
+
         self.service = OAuth2Service(
-            name='dataporten',
+            name=self.provider_name,
             client_id=self.consumer_id,
             client_secret=self.consumer_secret,
             authorize_url='https://auth.dataporten.no/oauth/authorization',
             access_token_url='https://auth.dataporten.no/oauth/token',
             base_url='https://auth.dataporten.no/'
         )
+
+        self.redis = StrictRedis()
 
     def authorize(self):
         return redirect(self.service.get_authorize_url(
@@ -56,15 +39,65 @@ class DataportenSignIn(OAuthSignIn):
 
         if 'code' not in request.args:
             return None, None, None
-        oauth_session = self.service.get_auth_session(
+        raw_access_token = self.service.get_raw_access_token(
             data={'code': request.args['code'],
                   'grant_type': 'authorization_code',
-                  'redirect_uri': self.get_callback_url()},
-            decoder=decode_json
+                  'redirect_uri': self.get_callback_url()}
         )
-        me = oauth_session.get('userinfo').json()
-        return (
-            'dataporten$' + me['user']['userid'],
-            me['user']['userid_sec'][0],
-            me['user']['email']
+        response = decode_json(raw_access_token.content)
+        oauth_session = self.service.get_session(token=response['access_token'])
+
+        userinfo = oauth_session.get('userinfo').json()
+        # Validate that the audience is the same as the client_id
+        if (userinfo['audience'] != os.environ['DATAPORTEN_CLIENT_ID']):
+            return None, None
+
+        # Store the access_token as key with the user_id as value with an expiration time
+        self.redis.set(response['access_token'], userinfo['user']['userid'], response['expires_in'])
+
+        return userinfo['user']['userid'], response['access_token']
+
+    def get_callback_url(self):
+        return url_for('oauth_callback', provider=self.provider_name, _external=True)
+
+    def logout(self):
+        """ Delete the stored token
+        """
+        try:
+            token = request.headers.get('Authorization').split(' ')[1]
+            self.redis.delete(token)
+            return True
+        except:
+            return False
+
+    def check_auth(self, token, allowed_roles, resource, method):
+        """ Check if API request is authorized.
+        Examines token in header and checks Redis cache to see if token is
+        valid. If so, request is allowed.
+        :param token: OAuth 2.0 access token submitted.
+        :param allowed_roles: Allowed user roles.
+        :param resource: Resource being requested.
+        :param method: HTTP method being executed (POST, GET, etc.)
+        """
+        return token and self.redis.get(token)
+
+    def authorized(self, allowed_roles, resource, method):
+        """ Validates the the current request is allowed to pass through.
+        :param allowed_roles: allowed roles for the current request, can be a
+                              string or a list of roles.
+        :param resource: resource being requested.
+        """
+        try:
+            token = request.headers.get('Authorization').split(' ')[1]
+        except:
+            token = None
+        return self.check_auth(token, allowed_roles, resource, method)
+
+    def authenticate(self):
+        """ Returns a standard a 401 response that enables basic auth.
+        Override if you want to change the response and/or the realm.
+        """
+        resp = Response(
+            None, 401
         )
+        abort(401, description="Please log in by accessing the /authorize endpoint", response=resp)
