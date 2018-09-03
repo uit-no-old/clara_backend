@@ -58,7 +58,12 @@ class DataportenSignIn(BasicAuth):
         return userinfo['user']['userid'], response['access_token']
 
     def get_callback_url(self):
-        return url_for('oauth_callback', provider=self.provider_name, _external=True)
+        try:
+            os.environ["MONGO_PASSWORD"]
+            return url_for('oauth_callback', provider=self.provider_name, _external=True, _scheme="https")
+        except KeyError:
+            return url_for('oauth_callback', provider=self.provider_name, _external=True)
+
 
     def logout(self):
         """ Delete the stored token
