@@ -11,6 +11,8 @@ try:
 except KeyError:
     pass
 
+# Test
+
 # Database configuration
 if azure:
     DEBUG=True
