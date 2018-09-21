@@ -24,6 +24,7 @@ if azure:
     MONGO_AUTH_SOURCE = "admin"
 
     X_DOMAINS="*"
+    X_HEADERS = ['Authorization','Content-type']
 
 else:
     DEBUG=True
