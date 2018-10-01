@@ -5,20 +5,24 @@ class ClaraResponses:
         """
         Calculate average score of each main_scale for one item
         """
-        try:
-            self._calculare_score(response)
-        except TypeError:
-            pass
+        self._is_embedded(response)
 
     def resource_calculate_score(self, response):
         """
         Calculate average score of each main_scale for the whole resource
         """
+        for clara_items in response['_items']:
+            self._is_embedded(clara_items)
+
+    def _is_embedded(self, clara_items):
+        """
+        If some fields are not embedded we dont have all the data we need to
+        calculate the score
+        """
         try:
-            for clara_items in response['_items']:
-                self._calculare_score(clara_items)
+            self._calculare_score(clara_items)
         except TypeError:
-            pass
+            clara_items['score'] = {'ERROR': 'Have you embedded student_classes, clara_items.clara_item and clara_items.response_option?'}
 
     def _calculare_score(self, clara_items):
         clara_items['score'] = {}

@@ -26,7 +26,7 @@ Example JSON:
 
 ## Clara reponses (the filled out question forms)
 
-- GET https://clara-backend.eastus.cloudapp.azure.com/clara_responses?embedded={"student_classes":1,"clara_items.clara_item":1,"clara_items.response_option":1}
+- GET https://clara-backend.eastus.cloudapp.azure.com/clara_responses
 - POST https://clara-backend.eastus.cloudapp.azure.com/clara_responses
 
 Example JSON:
