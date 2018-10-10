@@ -30,6 +30,9 @@ else:
 
     URL_PREFIX="v2"
 
+X_DOMAINS="*"
+X_HEADERS = ['Authorization','Content-type','Access-Control-Allow-Origin']
+
 # Enable reads (GET), inserts (POST) and DELETE for resources/collections
 # (if you omit this line, the API will default to ['GET'] and provide
 # read-only access to the endpoint).
