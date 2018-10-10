@@ -85,6 +85,9 @@ class DataportenSignIn(BasicAuth):
         :param resource: Resource being requested.
         :param method: HTTP method being executed (POST, GET, etc.)
         """
+        dataporten_userid = self.redis.get(token)
+        self.set_request_auth_value(dataporten_userid)
+
         return token and self.redis.get(token)
 
     def authorized(self, allowed_roles, resource, method):
