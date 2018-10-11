@@ -1,6 +1,6 @@
 schema = {
     # Schema definition, of the possible student classes (studiekull).
-    'student_classes': {
+    'student_class': {
         'type': 'string',
         'minlength': 1,
         'maxlength': 255,

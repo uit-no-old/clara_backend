@@ -1,9 +1,15 @@
 from eve import Eve
+from eve.methods.post import post_internal
+from eve.methods.get import get_internal
 from src.clara_responses import ClaraResponses
 
-from flask import redirect, flash, jsonify
+from flask import redirect, flash, jsonify, request
 from flask_cors import cross_origin
 from src.oauth2 import DataportenSignIn
+from src.basic import requires_auth
+
+from bson.json_util import dumps
+from bson import ObjectId
 
 clara_responses = ClaraResponses()
 app = Eve(auth=DataportenSignIn)
@@ -31,7 +37,19 @@ def oauth_callback():
         response = redirect("http://localhost:4200/callback#access_token={}".format(access_token), code=302)
 
     return response
-    # return jsonify(access_token=access_token)
+
+@app.route('/student_classes_admin', methods=['GET','POST'])
+@requires_auth
+def student_classes_admin():
+    if request.method == 'POST':
+        return dumps(post_internal('student_classes', request.json))
+    else:
+        return dumps(get_internal('student_classes'))
+
+@app.route('/clara_responses_admin')
+@requires_auth
+def clara_responses_admin():
+    return dumps(get_internal('clara_responses'))
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')

@@ -3,7 +3,7 @@
 import schemas.student_classes.schema as student_classes_schema
 
 schema = {
-    'student_classes': {
+    'student_class': {
         'type': 'objectid',
         'data_relation': {
             'resource': 'student_classes',
