@@ -7,7 +7,7 @@ from src.clara_responses import ClaraResponses
 from flask import redirect, flash, jsonify, request, stream_with_context
 from flask_cors import cross_origin
 from src.oauth2 import DataportenSignIn
-from src.basic import requires_auth
+from src.oauth2admin import DataportenAdminSignIn, requires_auth
 
 from bson.json_util import dumps
 from bson import ObjectId
@@ -36,14 +36,33 @@ def oauth_authorize():
 
 @app.route('/callback')
 def oauth_callback():
-    oauth2 = DataportenSignIn()
-    user_id, access_token = oauth2.callback()
-    if user_id is None:
-        response = redirect("http://localhost:4200/callback#access_token=ERROR", code=302)
-    else:
-        response = redirect("http://localhost:4200/callback#access_token={}".format(access_token), code=302)
+    provider = request.args.get('provider')
+    if provider == 'dataporten':
+        oauth2 = DataportenSignIn()
+        user_id, access_token = oauth2.callback()
+        if user_id is None:
+            response = redirect("http://localhost:4200/callback#access_token=ERROR", code=302)
+        else:
+            response = redirect("http://localhost:4200/callback#access_token={}".format(access_token), code=302)
+    elif provider == 'dataporten_admin':
+        oauth2admin = DataportenAdminSignIn()
+        user_id, access_token = oauth2admin.callback()
+        if user_id is None:
+            response = redirect("http://localhost:4200/admin-callback#access_token=ERROR", code=302)
+        else:
+            response = redirect("http://localhost:4200/admin-callback#access_token={}".format(access_token), code=302)
 
     return response
+
+@app.route('/logout-admin')
+@cross_origin()
+def logout_admin():
+    DataportenAdminSignIn().logout()
+    return jsonify(_status="OK",message="Successfully logged out")
+
+@app.route('/authorize-admin')
+def oauth_authorize_admin():
+    return DataportenAdminSignIn().authorize()
 
 @app.route('/student_classes_admin', methods=['GET','POST'])
 @app.route('/student_classes_admin/<_id>', methods=['PUT'])

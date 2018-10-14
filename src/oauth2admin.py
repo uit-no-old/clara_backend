@@ -7,14 +7,16 @@ from flask import url_for, request, redirect, Response, abort
 
 from redis import StrictRedis
 
-class DataportenSignIn(BasicAuth):
-    tokenPrefix = 'USER-{}'
-    def __init__(self):
-        super(DataportenSignIn, self).__init__()
+from functools import wraps
 
-        self.provider_name = 'dataporten'
-        self.consumer_id = os.environ['DATAPORTEN_CLIENT_ID']
-        self.consumer_secret = os.environ['DATAPORTEN_CLIENT_SECRET']
+class DataportenAdminSignIn(BasicAuth):
+    tokenPrefix = 'ADMIN-{}'
+    def __init__(self):
+        super(DataportenAdminSignIn, self).__init__()
+
+        self.provider_name = 'dataporten_admin'
+        self.consumer_id =  os.environ['DATAPORTEN_ADMIN_CLIENT_ID']
+        self.consumer_secret = os.environ['DATAPORTEN_ADMIN_CLIENT_SECRET']
 
         self.service = OAuth2Service(
             name=self.provider_name,
@@ -49,8 +51,13 @@ class DataportenSignIn(BasicAuth):
         oauth_session = self.service.get_session(token=response['access_token'])
 
         userinfo = oauth_session.get('userinfo').json()
+        # {'user': {'userid_sec': ['feide:ran033@uit.no'], 'userid': '9618b141-55f7-442b-b89a-7cdf2d3e716a', 'name': 'Ruben Andreassen',
+        # 'email': 'ruben.andreassen@uit.no', 'profilephoto': 'p:6712c0ae-6779-4f25-8c95-696498a5c0ca'},
+        # 'audience': 'b00d74c3-1afe-49a8-9a9d-bd25903db400'}
+        # print(userinfo['audience'])
+        # print(os.environ['DATAPORTEN_CLIENT_ID'])
         # Validate that the audience is the same as the client_id
-        if (userinfo['audience'] != os.environ['DATAPORTEN_CLIENT_ID']):
+        if (userinfo['audience'] != os.environ['DATAPORTEN_ADMIN_CLIENT_ID']):
             return None, None
 
         # Store the access_token as key with the user_id as value with an expiration time
@@ -77,7 +84,8 @@ class DataportenSignIn(BasicAuth):
         except:
             return False
 
-    def check_auth(self, token, allowed_roles, resource, method):
+    # def check_auth(self, token, allowed_roles, resource, method):
+    def check_auth(self, token):
         """ Check if API request is authorized.
         Examines token in header and checks Redis cache to see if token is
         valid. If so, request is allowed.
@@ -111,3 +119,12 @@ class DataportenSignIn(BasicAuth):
             None, 401
         )
         abort(401, description="Please log in by accessing the /authorize endpoint", response=resp)
+
+def requires_auth(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        token = request.headers.get('authorization').split(' ')[1]
+        if not token or not DataportenAdminSignIn().check_auth(token):
+            return DataportenAdminSignIn().authenticate()
+        return f(*args, **kwargs)
+    return decorated
