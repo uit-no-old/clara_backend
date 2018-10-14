@@ -1,20 +1,20 @@
 [
   {
-    "student_classes": "KULL1_2018_HØST"
+    "student_class": "KULL1_2018_HØST"
   },
   {
-    "student_classes": "KULL1_2019_VÅR"
+    "student_class": "KULL1_2019_VÅR"
   },
   {
-    "student_classes": "KULL2_2018_HØST"
+    "student_class": "KULL2_2018_HØST"
   },
   {
-    "student_classes": "KULL2_2019_VÅR"
+    "student_class": "KULL2_2019_VÅR"
   },
   {
-    "student_classes": "KULL3_2018_HØST"
+    "student_class": "KULL3_2018_HØST"
   },
   {
-    "student_classes": "KULL3_2019_VÅR"
+    "student_class": "KULL3_2019_VÅR"
   }
 ]

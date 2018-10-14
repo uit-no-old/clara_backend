@@ -23,14 +23,17 @@ if azure:
     MONGO_PASSWORD=os.environ["MONGO_PASSWORD"]
     MONGO_AUTH_SOURCE = "admin"
 
-    X_DOMAINS="*"
-    X_HEADERS = ['Authorization','Content-type']
-
+    URL_PREFIX="v2"
 else:
     DEBUG=True
     MONGO_HOST="localhost"
     MONGO_PORT=27017
     MONGO_DBNAME="eve"
+
+    URL_PREFIX="v2"
+
+X_DOMAINS="*"
+X_HEADERS = ['Authorization','Content-type','Access-Control-Allow-Origin']
 
 # Enable reads (GET), inserts (POST) and DELETE for resources/collections
 # (if you omit this line, the API will default to ['GET'] and provide

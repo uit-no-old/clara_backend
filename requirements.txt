@@ -1,3 +1,5 @@
-eve
-flask-cors
-applicationinsights
+eve==0.8
+flask-cors==3.0.6
+applicationinsights==0.11.6
+redis==2.10.6
+rauth==0.7.0

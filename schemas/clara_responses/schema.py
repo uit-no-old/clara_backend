@@ -3,7 +3,7 @@
 import schemas.student_classes.schema as student_classes_schema
 
 schema = {
-    'student_classes': {
+    'student_class': {
         'type': 'objectid',
         'data_relation': {
             'resource': 'student_classes',
@@ -68,7 +68,8 @@ clara_responses = {
     'cache_control': 'max-age=10,must-revalidate',
     'cache_expires': 10,
     # Embed by default
-    'embedded_fields': ['student_classes', 'clara_items.clara_item', 'clara_items.response_option'],
+    'embedded_fields': ['student_class', 'clara_items.clara_item', 'clara_items.response_option'],
+    'auth_field': 'dataporten_userid',
 
     # most global settings can be overridden at resource level
     'resource_methods': ['GET', 'POST'],
