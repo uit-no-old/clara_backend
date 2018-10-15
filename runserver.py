@@ -36,21 +36,24 @@ def oauth_authorize():
 
 @app.route('/callback')
 def oauth_callback():
+    # TODO: Fix this
+    # host = "http://localhost:4200"
+    host = "https://clara-frontend.azurewebsites.net"
     provider = request.args.get('provider')
     if provider == 'dataporten':
         oauth2 = DataportenSignIn()
         user_id, access_token = oauth2.callback()
         if user_id is None:
-            response = redirect("http://localhost:4200/callback#access_token=ERROR", code=302)
+            response = redirect("{}/callback#access_token=ERROR".format(host), code=302)
         else:
-            response = redirect("http://localhost:4200/callback#access_token={}".format(access_token), code=302)
+            response = redirect("{}/callback#access_token={}".format(host, access_token), code=302)
     elif provider == 'dataporten_admin':
         oauth2admin = DataportenAdminSignIn()
         user_id, access_token = oauth2admin.callback()
         if user_id is None:
-            response = redirect("http://localhost:4200/admin-callback#access_token=ERROR", code=302)
+            response = redirect("{}/admin-callback#access_token=ERROR".format(host), code=302)
         else:
-            response = redirect("http://localhost:4200/admin-callback#access_token={}".format(access_token), code=302)
+            response = redirect("{}/admin-callback#access_token={}".format(host,access_token), code=302)
 
     return response
 
