@@ -27,7 +27,12 @@ class DataportenAdminSignIn(BasicAuth):
             base_url='https://auth.dataporten.no/'
         )
 
-        self.redis = StrictRedis()
+        #TODO: This may not be the best check for Azure environment
+        try:
+            os.environ["MONGO_PASSWORD"]
+            self.redis = StrictRedis(host='zooming-ladybird-redis-master.dev.svc.cluster.local', password=os.environ['REDIS_PASSWORD'])
+        except KeyError:
+            self.redis = StrictRedis()
 
     def authorize(self):
         return redirect(self.service.get_authorize_url(

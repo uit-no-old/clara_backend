@@ -60,6 +60,11 @@ spec:
                secretKeyRef:
                  name: sweet-ostrich-mongodb
                  key: mongodb-root-password
+           - name: REDIS_PASSWORD
+             valueFrom:
+               secretKeyRef:
+                 name: zooming-ladybird-redis
+                 key: redis-password
            - name: DATAPORTEN_CLIENT_ID
              valueFrom:
                secretKeyRef:
@@ -75,3 +80,13 @@ spec:
                secretKeyRef:
                  name: dataporten
                  key: secret_key
+           - name: DATAPORTEN_ADMIN_CLIENT_ID
+             valueFrom:
+               secretKeyRef:
+                 name: dataportenadmin
+                 key: client_id
+           - name: DATAPORTEN_ADMIN_CLIENT_SECRET
+             valueFrom:
+               secretKeyRef:
+                 name: dataportenadmin
+                 key: client_secret
