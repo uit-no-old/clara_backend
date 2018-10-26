@@ -1,32 +1,27 @@
 [
   {
-    "response_string": "Ikke likt meg i det hele tatt",
+    "response_string": "Vet ikke",
     "response_number": 1,
     "language": "no"
   },
   {
-    "response_string": "Lite likt meg",
+    "response_string": "Svært likt meg",
     "response_number": 2,
     "language": "no"
   },
   {
-    "response_string": "Noe likt meg",
+    "response_string": "Likt meg",
     "response_number": 3,
     "language": "no"
   },
   {
-    "response_string": "Ganske likt meg",
+    "response_string": "Noe likt meg",
     "response_number": 4,
     "language": "no"
   },
   {
-    "response_string": "Nokså mye, likt meg",
+    "response_string": "Ikke likt meg",
     "response_number": 5,
-    "language": "no"
-  },
-  {
-    "response_string": "Ja, helt likt meg",
-    "response_number": 6,
     "language": "no"
   }
 ]

@@ -3,11 +3,13 @@ import os
 
 from eve.auth import BasicAuth
 from rauth import OAuth2Service
-from flask import url_for, request, redirect, Response, abort
+from flask import url_for, request, redirect, Response, abort, current_app
 
 from redis import StrictRedis
 
 from functools import wraps
+
+import settings
 
 class DataportenAdminSignIn(BasicAuth):
     tokenPrefix = 'ADMIN-{}'
@@ -27,11 +29,9 @@ class DataportenAdminSignIn(BasicAuth):
             base_url='https://auth.dataporten.no/'
         )
 
-        #TODO: This may not be the best check for Azure environment
-        try:
-            os.environ["MONGO_PASSWORD"]
-            self.redis = StrictRedis(host='zooming-ladybird-redis-master.dev.svc.cluster.local', password=os.environ['REDIS_PASSWORD'])
-        except KeyError:
+        if settings.AZURE_ENV:
+            self.redis = StrictRedis(host=settings.REDIS_HOST, password=os.environ['REDIS_PASSWORD'])
+        else:
             self.redis = StrictRedis()
 
     def authorize(self):
@@ -56,13 +56,20 @@ class DataportenAdminSignIn(BasicAuth):
         oauth_session = self.service.get_session(token=response['access_token'])
 
         userinfo = oauth_session.get('userinfo').json()
-        # {'user': {'userid_sec': ['feide:ran033@uit.no'], 'userid': '9618b141-55f7-442b-b89a-7cdf2d3e716a', 'name': 'Ruben Andreassen',
-        # 'email': 'ruben.andreassen@uit.no', 'profilephoto': 'p:6712c0ae-6779-4f25-8c95-696498a5c0ca'},
-        # 'audience': 'b00d74c3-1afe-49a8-9a9d-bd25903db400'}
-        # print(userinfo['audience'])
-        # print(os.environ['DATAPORTEN_CLIENT_ID'])
+
         # Validate that the audience is the same as the client_id
         if (userinfo['audience'] != os.environ['DATAPORTEN_ADMIN_CLIENT_ID']):
+            return None, None
+
+        # Check whitelist
+        username = userinfo['user']['userid_sec'][0].replace('feide:', '')
+        results = current_app.data.driver.db['whitelist'].find(
+            {"username": username,"active":True}
+        )
+
+        try:
+            next(results) # This failes if no results in the whitelist is found
+        except StopIteration:
             return None, None
 
         # Store the access_token as key with the user_id as value with an expiration time
@@ -71,11 +78,9 @@ class DataportenAdminSignIn(BasicAuth):
         return userinfo['user']['userid'], response['access_token']
 
     def get_callback_url(self):
-        #TODO: This may not be the best check for Azure environment
-        try:
-            os.environ["MONGO_PASSWORD"]
+        if settings.AZURE_ENV:
             return url_for('oauth_callback', provider=self.provider_name, _external=True, _scheme="https")
-        except KeyError:
+        else:
             return url_for('oauth_callback', provider=self.provider_name, _external=True)
 
 
@@ -128,7 +133,10 @@ class DataportenAdminSignIn(BasicAuth):
 def requires_auth(f):
     @wraps(f)
     def decorated(*args, **kwargs):
-        token = request.headers.get('authorization').split(' ')[1]
+        try:
+            token = request.headers.get('Authorization').split(' ')[1]
+        except:
+            token = False
         if not token or not DataportenAdminSignIn().check_auth(token):
             return DataportenAdminSignIn().authenticate()
         return f(*args, **kwargs)

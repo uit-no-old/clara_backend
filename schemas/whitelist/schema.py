@@ -6,6 +6,12 @@ schema = {
         'maxlength': 255,
         'required': True
     },
+    'name': {
+        'type': 'string',
+        'minlength': 1,
+        'maxlength': 255,
+        'required': True
+    },
     'active': {
         'type': 'boolean',
         'default': True
@@ -18,7 +24,7 @@ whitelist = {
     'cache_expires': 10,
 
     # most global settings can be overridden at resource level
-    'resource_methods': ['GET'],
+    'resource_methods': [],
 
     'schema': schema
 }

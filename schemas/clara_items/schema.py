@@ -49,7 +49,7 @@ clara_items = {
     'cache_expires': 10,
 
     # most global settings can be overridden at resource level
-    'resource_methods': ['GET', 'POST'],
+    'resource_methods': ['GET'],
 
     'schema': schema
 }

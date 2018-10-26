@@ -18,6 +18,8 @@ from io import StringIO
 from werkzeug.datastructures import Headers
 from werkzeug.wrappers import Response
 
+import settings
+
 clara_responses = ClaraResponses()
 app = Eve(auth=DataportenSignIn)
 # Callback when someone is accessing one item from clara_responses
@@ -36,24 +38,21 @@ def oauth_authorize():
 
 @app.route('/callback')
 def oauth_callback():
-    # TODO: Fix this
-    # host = "http://localhost:4200"
-    host = "https://clara-frontend.azurewebsites.net"
     provider = request.args.get('provider')
     if provider == 'dataporten':
         oauth2 = DataportenSignIn()
         user_id, access_token = oauth2.callback()
         if user_id is None:
-            response = redirect("{}/callback#access_token=ERROR".format(host), code=302)
+            response = redirect("{}/callback#access_token=ERROR".format(settings.CALLBACK_URL), code=302)
         else:
-            response = redirect("{}/callback#access_token={}".format(host, access_token), code=302)
+            response = redirect("{}/callback#access_token={}".format(settings.CALLBACK_URL, access_token), code=302)
     elif provider == 'dataporten_admin':
         oauth2admin = DataportenAdminSignIn()
         user_id, access_token = oauth2admin.callback()
         if user_id is None:
-            response = redirect("{}/admin-callback#access_token=ERROR".format(host), code=302)
+            response = redirect("{}/admin-callback#access_token=ERROR".format(settings.CALLBACK_URL), code=302)
         else:
-            response = redirect("{}/admin-callback#access_token={}".format(host,access_token), code=302)
+            response = redirect("{}/admin-callback#access_token={}".format(settings.CALLBACK_URL,access_token), code=302)
 
     return response
 
@@ -81,6 +80,39 @@ def student_classes_admin(_id=None):
         )
 
     return dumps(get_internal('student_classes')[0])
+
+@app.route('/response_options_admin', methods=['GET','POST'])
+@cross_origin()
+@requires_auth
+def response_options_admin(_id=None):
+    if request.method == 'POST':
+        return dumps(post_internal('response_options', request.json)[0])
+
+    return dumps(get_internal('response_options')[0])
+
+@app.route('/clara_items_admin', methods=['GET','POST'])
+@cross_origin()
+@requires_auth
+def clara_items_admin(_id=None):
+    if request.method == 'POST':
+        return dumps(post_internal('clara_items', request.json)[0])
+
+    return dumps(get_internal('clara_items')[0])
+
+@app.route('/whitelist_admin', methods=['GET','POST'])
+@app.route('/whitelist_admin/<_id>', methods=['PUT'])
+@cross_origin()
+@requires_auth
+def whitelist_admin(_id=None):
+    if request.method == 'POST':
+        return dumps(post_internal('whitelist', request.json)[0])
+    elif request.method == 'PUT':
+        app.data.driver.db['whitelist'].update(
+            {"_id": ObjectId(_id)},
+            {"$set": request.json}
+        )
+
+    return dumps(get_internal('whitelist')[0])
 
 @app.route('/clara_responses_download')
 @cross_origin()

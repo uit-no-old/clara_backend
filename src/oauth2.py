@@ -7,6 +7,8 @@ from flask import url_for, request, redirect, Response, abort
 
 from redis import StrictRedis
 
+import settings
+
 class DataportenSignIn(BasicAuth):
     tokenPrefix = 'USER-{}'
     def __init__(self):
@@ -25,11 +27,9 @@ class DataportenSignIn(BasicAuth):
             base_url='https://auth.dataporten.no/'
         )
 
-        #TODO: This may not be the best check for Azure environment
-        try:
-            os.environ["MONGO_PASSWORD"]
-            self.redis = StrictRedis(host='zooming-ladybird-redis-master.dev.svc.cluster.local', password=os.environ['REDIS_PASSWORD'])
-        except KeyError:
+        if settings.AZURE_ENV:
+            self.redis = StrictRedis(host=settings.REDIS_HOST, password=os.environ['REDIS_PASSWORD'])
+        else:
             self.redis = StrictRedis()
 
     def authorize(self):
@@ -64,11 +64,9 @@ class DataportenSignIn(BasicAuth):
         return userinfo['user']['userid'], response['access_token']
 
     def get_callback_url(self):
-        #TODO: This may not be the best check for Azure environment
-        try:
-            os.environ["MONGO_PASSWORD"]
+        if settings.AZURE_ENV:
             return url_for('oauth_callback', provider=self.provider_name, _external=True, _scheme="https")
-        except KeyError:
+        else:
             return url_for('oauth_callback', provider=self.provider_name, _external=True)
 
 

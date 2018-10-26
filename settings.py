@@ -3,18 +3,19 @@ import schemas.clara_items.schema as clara_items_schema
 import schemas.response_options.schema as response_options_schema
 import schemas.student_classes.schema as student_classes_schema
 import schemas.clara_responses.schema as clara_responses_schema
+import schemas.whitelist.schema as whitelist_schema
 
-azure = False
+AZURE_ENV = False
 try:
     os.environ["MONGO_PASSWORD"]
-    azure = True
+    AZURE_ENV = True
 except KeyError:
     pass
 
 # Test
 
 # Database configuration
-if azure:
+if AZURE_ENV:
     DEBUG=True
     MONGO_HOST="sweet-ostrich-mongodb.dev.svc.cluster.local"
     MONGO_PORT=27017
@@ -23,15 +24,18 @@ if azure:
     MONGO_PASSWORD=os.environ["MONGO_PASSWORD"]
     MONGO_AUTH_SOURCE = "admin"
 
-    URL_PREFIX="v2"
+    CALLBACK_URL = "https://clara-frontend.azurewebsites.net"
+
+    REDIS_HOST="zooming-ladybird-redis-master.dev.svc.cluster.local"
 else:
     DEBUG=True
     MONGO_HOST="localhost"
     MONGO_PORT=27017
     MONGO_DBNAME="eve"
 
-    URL_PREFIX="v2"
+    CALLBACK_URL = "http://localhost:4200"
 
+URL_PREFIX="v2"
 X_DOMAINS="*"
 X_HEADERS = ['Authorization','Content-type','Access-Control-Allow-Origin']
 
@@ -48,5 +52,6 @@ DOMAIN = {
     'clara_items': clara_items_schema.clara_items,
     'response_options': response_options_schema.response_options,
     'student_classes': student_classes_schema.student_classes,
-    'clara_responses': clara_responses_schema.clara_responses
+    'clara_responses': clara_responses_schema.clara_responses,
+    'whitelist': whitelist_schema.whitelist,
 }
