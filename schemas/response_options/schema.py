@@ -6,8 +6,16 @@ schema = {
         'maxlength': 50,
         'required': True
     },
-    'response_number': {
+    'response_value': {
         'type': 'integer',
+        'required': True
+    },
+    'response_order': {
+        'type': 'integer',
+        'required': True
+    },
+    'main_scales': {
+        'type': 'list',
         'required': True
     },
     'language': {

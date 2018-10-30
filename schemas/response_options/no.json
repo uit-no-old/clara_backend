@@ -1,27 +1,72 @@
 [
   {
     "response_string": "Vet ikke",
-    "response_number": 1,
-    "language": "no"
-  },
-  {
-    "response_string": "Svært likt meg",
-    "response_number": 2,
-    "language": "no"
-  },
-  {
-    "response_string": "Likt meg",
-    "response_number": 3,
-    "language": "no"
-  },
-  {
-    "response_string": "Noe likt meg",
-    "response_number": 4,
+    "response_value": 1,
+    "response_order": 4,
+    "main_scales": ["Tilhørighet","Samarbeid","Kreativitet","Nyskjerrighet","Optimisme","Tilstedeværelse","Forståelse"],
     "language": "no"
   },
   {
     "response_string": "Ikke likt meg",
-    "response_number": 5,
+    "response_value": 2,
+    "response_order": 3,
+    "main_scales": ["Tilhørighet","Samarbeid","Kreativitet","Nyskjerrighet","Optimisme","Tilstedeværelse","Forståelse"],
+    "language": "no"
+  },
+  {
+    "response_string": "Noe likt meg",
+    "response_value": 3,
+    "response_order": 2,
+    "main_scales": ["Tilhørighet","Samarbeid","Kreativitet","Nyskjerrighet","Optimisme","Tilstedeværelse","Forståelse"],
+    "language": "no"
+  },
+  {
+    "response_string": "Likt meg",
+    "response_value": 4,
+    "response_order": 1,
+    "main_scales": ["Tilhørighet","Samarbeid","Kreativitet","Nyskjerrighet","Optimisme","Tilstedeværelse","Forståelse"],
+    "language": "no"
+  },
+  {
+    "response_string": "Svært likt meg",
+    "response_value": 5,
+    "response_order": 0,
+    "main_scales": ["Tilhørighet","Samarbeid","Kreativitet","Nyskjerrighet","Optimisme","Tilstedeværelse","Forståelse"],
+    "language": "no"
+  },
+  {
+    "response_string": "Vet ikke",
+    "response_value": 0,
+    "response_order": 4,
+    "main_scales": ["Læringsorientering"],
+    "language": "no"
+  },
+  {
+    "response_string": "Ikke likt meg",
+    "response_value": 4,
+    "response_order": 3,
+    "main_scales": ["Læringsorientering"],
+    "language": "no"
+  },
+  {
+    "response_string": "Noe likt meg",
+    "response_value": 3,
+    "response_order": 2,
+    "main_scales": ["Læringsorientering"],
+    "language": "no"
+  },
+  {
+    "response_string": "Likt meg",
+    "response_value": 2,
+    "response_order": 1,
+    "main_scales": ["Læringsorientering"],
+    "language": "no"
+  },
+  {
+    "response_string": "Svært likt meg",
+    "response_value": 1,
+    "response_order": 0,
+    "main_scales": ["Læringsorientering"],
     "language": "no"
   }
 ]

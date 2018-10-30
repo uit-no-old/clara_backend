@@ -33,8 +33,8 @@ else:
     MONGO_PORT=27017
     MONGO_DBNAME="eve"
 
-    # CALLBACK_URL = "http://localhost:4200"
-    CALLBACK_URL = "http://129.242.6.208:4200"
+    CALLBACK_URL = "http://localhost:4200"
+    # CALLBACK_URL = "http://129.242.6.208:4200"
 
 URL_PREFIX="v2"
 X_DOMAINS="*"

@@ -28,10 +28,10 @@ class ClaraResponses:
         clara_items['score'] = {}
         for clara_item in clara_items['clara_items']:
             try:
-                clara_items['score'][clara_item['clara_item']['main_scale']].append(clara_item['response_option']['response_number'])
+                clara_items['score'][clara_item['clara_item']['main_scale']].append(clara_item['response_option']['response_value'])
             except KeyError:
                 clara_items['score'].update({clara_item['clara_item']['main_scale']: []})
-                clara_items['score'][clara_item['clara_item']['main_scale']].append(clara_item['response_option']['response_number'])
+                clara_items['score'][clara_item['clara_item']['main_scale']].append(clara_item['response_option']['response_value'])
 
         for main_scale in clara_items['score']:
             average = reduce(lambda x, y: x + y, clara_items['score'][main_scale]) / len(clara_items['score'][main_scale])

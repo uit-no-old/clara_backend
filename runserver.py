@@ -125,15 +125,16 @@ def clara_responses_download():
         data = StringIO()
         w = csv.writer(data, delimiter=';')
 
-        header = []
-        for res in items[0]['clara_items']:
-            header.append(res['clara_item']['itembank_id'])
+        for item in ['main_scale', 'clara_item']:
+            header = []
+            for res in items[0]['clara_items']:
+                header.append(res['clara_item'][item])
 
-        # write header
-        w.writerow(header)
-        yield data.getvalue()
-        data.seek(0)
-        data.truncate(0)
+            # write header
+            w.writerow(header)
+            yield data.getvalue()
+            data.seek(0)
+            data.truncate(0)
 
         # write each log item
         for item in items:
@@ -141,7 +142,7 @@ def clara_responses_download():
             resA = []
             for res in item['clara_items']:
                 # resH.append(res['clara_item']['itembank_id'])
-                resA.append(res['response_option']['response_number'])
+                resA.append(res['response_option']['response_value'])
 
             # w.writerow(resH)
             w.writerow(resA)
