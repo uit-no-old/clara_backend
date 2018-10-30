@@ -29,8 +29,17 @@ app.on_fetched_resource_clara_responses += clara_responses.resource_calculate_sc
 @app.route('/logout')
 @cross_origin()
 def logout():
-    DataportenSignIn().logout()
-    return jsonify(_status="OK",message="Successfully logged out")
+    provider = request.args.get('provider')
+    if provider == 'dataporten':
+        DataportenSignIn().logout()
+        response = jsonify(_status="OK",message="Successfully logged out")
+    elif provider == 'dataporten_admin':
+        DataportenAdminSignIn().logout()
+        response = jsonify(_status="OK",message="Successfully logged out")
+    else:
+        response = jsonify(_status="ERROR",message="Could not log you out")
+
+    return response
 
 @app.route('/authorize')
 def oauth_authorize():
