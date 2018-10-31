@@ -1,6 +1,8 @@
 # Installation guide
 
 ## Pre Requirements:
+- Python 3  (version 3.6.5 was used during the making of this guide)
+  Example guide: https://www.rosehosting.com/blog/how-to-install-python-3-6-4-on-centos-7/
 - MongoDB   (version 4.0.3 was used during the making of this guide)
   https://docs.mongodb.com/manual/administration/install-on-linux/
 - Redis     (version 5.0.0 was used during the making of this guide)     
@@ -10,6 +12,9 @@
                   http://flask.pocoo.org/docs/1.0/deploying/mod_wsgi/
 
 ## Environment variables (You can skip those who defaults to correct values)
+NB! If you don't want to use the `/etc/environment` file you could choose another way
+or directly edit the `settings.py` file in the project folder.
+
 Add these variables in `/etc/environment`:
 - CLARA_ENV=PROD
 - CLARA_FRONTEND_URL=https://<FRONTEND_DOMAIN>
@@ -43,4 +48,22 @@ On the production server, add these environment variables in `/etc/environment`:
 - DATAPORTEN_ADMIN_CLIENT_ID=<Client ID>
 - DATAPORTEN_ADMIN_CLIENT_SECRET=<Client Secret>
 
-## API Setup
+NB! Remember to reboot your server after you are finished with the environment file.
+
+## Python Environment Setup
+
+Clone the project
+`git clone https://github.com/uit-no/clara_backend.git`
+
+Go into the directory and make a virtuel environment
+`cd clara_backend/`
+`python3.6 -m venv venv`
+`. venv/bin/activate`
+
+Install Python requirements
+`pip3.6 install -r requirements.txt`
+
+Check if it runs
+`python3 runserver.py`
+
+## WSGI Setup
