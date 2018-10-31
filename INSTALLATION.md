@@ -52,18 +52,21 @@ NB! Remember to reboot your server after you are finished with the environment f
 
 ## Python Environment Setup
 
-Clone the project
-`git clone https://github.com/uit-no/clara_backend.git`
+Clone the project somewhere
+`cd /var/www/`
+`sudo git clone https://github.com/uit-no/clara_backend.git`
 
 Go into the directory and make a virtuel environment
 `cd clara_backend/`
-`python3.6 -m venv venv`
+`sudo python3.6 -m venv venv`
 `. venv/bin/activate`
 
 Install Python requirements
-`pip3.6 install -r requirements.txt`
+`sudo -H pip3.6 install -r requirements.txt`
 
 Check if it runs
-`python3 runserver.py`
+`sudo python3 runserver.py`
 
 ## WSGI Setup
+Copy the apache VirtualHost file to your Apache conf directory (may need editing)
+`sudo cp conf/clara_backend.conf /etc/httpd/conf.d/`
