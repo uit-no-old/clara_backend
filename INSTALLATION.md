@@ -12,10 +12,10 @@
                   http://flask.pocoo.org/docs/1.0/deploying/mod_wsgi/
 
 ## Environment variables (You can skip those who defaults to correct values)
-NB! If you don't want to use the `/etc/environment` file you could choose another way
+NB! If you don't want to use the `/etc/sysconfig/httpd` file you could choose another way
 or directly edit the `settings.py` file in the project folder.
 
-Add these variables in `/etc/environment`:
+Add these variables in `/etc/sysconfig/httpd`:
 - CLARA_ENV=PROD
 - CLARA_FRONTEND_URL=https://<FRONTEND_DOMAIN>
 - MONGO_DBNAME=<DATABASE_NAME>                  (Default: `clara`)
@@ -35,7 +35,7 @@ one for normal users and one for admin access.
 - Redirect URI: `https://<BACKEND_DOMAIN>/callback?provider=dataporten`
 - Accepted scopes: `userid`
 
-On the production server, add these environment variables in `/etc/environment`:
+On the production server, add these environment variables in `/etc/sysconfig/httpd`:
 - DATAPORTEN_CLIENT_ID=<Client ID>
 - DATAPORTEN_CLIENT_SECRET=<Client Secret>
 
@@ -44,7 +44,7 @@ On the production server, add these environment variables in `/etc/environment`:
 - Redirect URI: `https://<BACKEND_DOMAIN>/callback?provider=dataporten_admin`
 - Accepted scopes: `email`, `profile`, `userid`, `userid-feide`
 
-On the production server, add these environment variables in `/etc/environment`:
+On the production server, add these environment variables in `/etc/sysconfig/httpd`:
 - DATAPORTEN_ADMIN_CLIENT_ID=<Client ID>
 - DATAPORTEN_ADMIN_CLIENT_SECRET=<Client Secret>
 
@@ -70,5 +70,4 @@ Check if it runs
 ## WSGI Setup
 Copy the apache VirtualHost file to your Apache conf directory (may need editing)
 `sudo cp conf/clara_backend.conf /etc/httpd/conf.d/`
-`sudo cp conf/activate_this.py venv/bin/`
 `sudo systemctl restart httpd.service`
