@@ -70,3 +70,5 @@ Check if it runs
 ## WSGI Setup
 Copy the apache VirtualHost file to your Apache conf directory (may need editing)
 `sudo cp conf/clara_backend.conf /etc/httpd/conf.d/`
+`sudo cp conf/activate_this.py venv/bin/`
+`sudo systemctl restart httpd.service`
