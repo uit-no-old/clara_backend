@@ -52,16 +52,16 @@ def oauth_callback():
         oauth2 = DataportenSignIn()
         user_id, access_token = oauth2.callback()
         if user_id is None:
-            response = redirect("{}/callback#access_token=ERROR".format(settings.CALLBACK_URL), code=302)
+            response = redirect("{}/callback#access_token=ERROR".format(settings.CLARA_FRONTEND_URL), code=302)
         else:
-            response = redirect("{}/callback#access_token={}".format(settings.CALLBACK_URL, access_token), code=302)
+            response = redirect("{}/callback#access_token={}".format(settings.CLARA_FRONTEND_URL, access_token), code=302)
     elif provider == 'dataporten_admin':
         oauth2admin = DataportenAdminSignIn()
         user_id, access_token = oauth2admin.callback()
         if user_id is None:
-            response = redirect("{}/admin-callback#access_token=ERROR".format(settings.CALLBACK_URL), code=302)
+            response = redirect("{}/admin-callback#access_token=ERROR".format(settings.CLARA_FRONTEND_URL), code=302)
         else:
-            response = redirect("{}/admin-callback#access_token={}".format(settings.CALLBACK_URL,access_token), code=302)
+            response = redirect("{}/admin-callback#access_token={}".format(settings.CLARA_FRONTEND_URL, access_token), code=302)
 
     return response
 

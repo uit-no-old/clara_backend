@@ -15,8 +15,8 @@ class DataportenSignIn(BasicAuth):
         super(DataportenSignIn, self).__init__()
 
         self.provider_name = 'dataporten'
-        self.consumer_id = os.environ['DATAPORTEN_CLIENT_ID']
-        self.consumer_secret = os.environ['DATAPORTEN_CLIENT_SECRET']
+        self.consumer_id = settings.DATAPORTEN_CLIENT_ID
+        self.consumer_secret = settings.DATAPORTEN_CLIENT_SECRET
 
         self.service = OAuth2Service(
             name=self.provider_name,
@@ -27,10 +27,7 @@ class DataportenSignIn(BasicAuth):
             base_url='https://auth.dataporten.no/'
         )
 
-        if settings.AZURE_ENV:
-            self.redis = StrictRedis(host=settings.REDIS_HOST, password=os.environ['REDIS_PASSWORD'])
-        else:
-            self.redis = StrictRedis()
+        self.redis = StrictRedis(host=settings.REDIS_HOST, password=settings.REDIS_PASSWORD)
 
     def authorize(self):
         return redirect(self.service.get_authorize_url(
@@ -55,7 +52,7 @@ class DataportenSignIn(BasicAuth):
 
         userinfo = oauth_session.get('userinfo').json()
         # Validate that the audience is the same as the client_id
-        if (userinfo['audience'] != os.environ['DATAPORTEN_CLIENT_ID']):
+        if (userinfo['audience'] != settings.DATAPORTEN_CLIENT_ID):
             return None, None
 
         # Store the access_token as key with the user_id as value with an expiration time
@@ -64,11 +61,7 @@ class DataportenSignIn(BasicAuth):
         return userinfo['user']['userid'], response['access_token']
 
     def get_callback_url(self):
-        if settings.AZURE_ENV:
-            return url_for('oauth_callback', provider=self.provider_name, _external=True, _scheme="https")
-        else:
-            return url_for('oauth_callback', provider=self.provider_name, _external=True)
-
+        return url_for('oauth_callback', provider=self.provider_name, _external=True, _scheme=settings.PREFERRED_URL_SCHEME)
 
     def logout(self):
         """ Delete the stored token
