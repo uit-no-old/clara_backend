@@ -74,7 +74,22 @@ Check if it runs
 
 ## Insert user in whitelist
 
-TODO
+The Admin interface in the application authenticates trough Dataporten and checks a
+whitelist in the database. When working on a blank database, or needing access to the
+Admin interface for the first time you need to run the whitelist script to insert a
+new user.
+
+`python3 add_admin.py -u abc123@uit.no -n Your Name`
+
+## Populate database with questions
+
+To populate the database for the first time modify the three variables `BASE_PATH`, `TOKEN` and `API`
+in the script `insert.sh` and run it:
+
+`./insert.sh`
+
+Tip: Get the token by logging in to the Admin part of the frontend and inspect the local storage.
+The token is in the entry named `access_token_admin`.
 
 ## WSGI Setup
 
