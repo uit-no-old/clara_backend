@@ -72,6 +72,10 @@ Install Python requirements
 Check if it runs
 `sudo python3 runserver.py`
 
+## Insert user in whitelist
+
+TODO
+
 ## WSGI Setup
 
 Copy the apache VirtualHost file to your Apache conf directory (may need editing)
