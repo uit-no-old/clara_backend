@@ -1,6 +1,7 @@
 # Installation guide
 
 ## Pre Requirements:
+
 - Python 3  (version 3.6.5 was used during the making of this guide)
   Example guide: https://www.rosehosting.com/blog/how-to-install-python-3-6-4-on-centos-7/
 - MongoDB   (version 4.0.3 was used during the making of this guide)
@@ -12,6 +13,7 @@
                   http://flask.pocoo.org/docs/1.0/deploying/mod_wsgi/
 
 ## Environment variables (You can skip those who defaults to correct values)
+
 NB! If you don't want to use the `/etc/sysconfig/httpd` file you could choose another way
 or directly edit the `settings.py` file in the project folder.
 
@@ -27,10 +29,12 @@ Add these variables in `/etc/sysconfig/httpd`:
 - REDIS_PASSWORD=<REDIS_PASSWORD>
 
 ## Dataporten setup
+
 This project requires two Applications registered in Dataporten Dashboard,
 one for normal users and one for admin access.
 
 ### Application 1
+
 - Name: your choice (example: Læringskraft USER)
 - Redirect URI: `https://<BACKEND_DOMAIN>/callback?provider=dataporten`
 - Accepted scopes: `userid`
@@ -40,6 +44,7 @@ On the production server, add these environment variables in `/etc/sysconfig/htt
 - DATAPORTEN_CLIENT_SECRET=<Client Secret>
 
 ### Application 2
+
 - Name: Your choice (example: Læringskraft ADMIN)
 - Redirect URI: `https://<BACKEND_DOMAIN>/callback?provider=dataporten_admin`
 - Accepted scopes: `email`, `profile`, `userid`, `userid-feide`
@@ -68,6 +73,7 @@ Check if it runs
 `sudo python3 runserver.py`
 
 ## WSGI Setup
+
 Copy the apache VirtualHost file to your Apache conf directory (may need editing)
 `sudo cp conf/clara_backend.conf /etc/httpd/conf.d/`
 `sudo systemctl restart httpd.service`
