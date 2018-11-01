@@ -19,14 +19,14 @@ or directly edit the `settings.py` file in the project folder.
 
 Add these variables in `/etc/sysconfig/httpd`:
 - CLARA_ENV=PROD
-- CLARA_FRONTEND_URL=https://<FRONTEND_DOMAIN>
-- MONGO_DBNAME=<DATABASE_NAME>                  (Default: `clara`)
-- MONGO_PORT=<MONGODB_PORT>                     (Default: `27017`)
-- MONGO_HOST=<MONGODB_HOST>                     (Default: `localhost`)
-- MONGO_USERNAME=<MONGODB_USERNAME>
-- MONGO_PASSWORD=<MONGODB_PASSWORD>
-- REDIS_HOST=<REDIS_HOST>                       (Default: `localhost`)
-- REDIS_PASSWORD=<REDIS_PASSWORD>
+- CLARA_FRONTEND_URL=`https://<FRONTEND_DOMAIN>`
+- MONGO_DBNAME=`<DATABASE_NAME>`                  (Default: `clara`)
+- MONGO_PORT=`<MONGODB_PORT>`                     (Default: `27017`)
+- MONGO_HOST=`<MONGODB_HOST>`                     (Default: `localhost`)
+- MONGO_USERNAME=`<MONGODB_USERNAME>`
+- MONGO_PASSWORD=`<MONGODB_PASSWORD>`
+- REDIS_HOST=`<REDIS_HOST>`                       (Default: `localhost`)
+- REDIS_PASSWORD=`<REDIS_PASSWORD>`
 
 ## Dataporten setup
 
@@ -40,8 +40,8 @@ one for normal users and one for admin access.
 - Accepted scopes: `userid`
 
 On the production server, add these environment variables in `/etc/sysconfig/httpd`:
-- DATAPORTEN_CLIENT_ID=<Client ID>
-- DATAPORTEN_CLIENT_SECRET=<Client Secret>
+- DATAPORTEN_CLIENT_ID=`<Client ID>`
+- DATAPORTEN_CLIENT_SECRET=`<Client Secret>`
 
 ### Application 2
 
@@ -50,8 +50,8 @@ On the production server, add these environment variables in `/etc/sysconfig/htt
 - Accepted scopes: `email`, `profile`, `userid`, `userid-feide`
 
 On the production server, add these environment variables in `/etc/sysconfig/httpd`:
-- DATAPORTEN_ADMIN_CLIENT_ID=<Client ID>
-- DATAPORTEN_ADMIN_CLIENT_SECRET=<Client Secret>
+- DATAPORTEN_ADMIN_CLIENT_ID=`<Client ID>`
+- DATAPORTEN_ADMIN_CLIENT_SECRET=`<Client Secret>`
 
 NB! Remember to reboot your server after you are finished with the environment file.
 
