@@ -11,6 +11,7 @@
 - Apache with WSGI
   Example guides: https://www.linode.com/docs/web-servers/apache/install-and-configure-apache-on-centos-7/
                   http://flask.pocoo.org/docs/1.0/deploying/mod_wsgi/
+                  https://stackoverflow.com/questions/47650902/httpd-mod-wsgi-for-python3-4-not-working-in-centos7
 
 ## Environment variables (You can skip those who defaults to correct values)
 
@@ -63,14 +64,15 @@ Clone the project somewhere
 
 Go into the directory and make a virtuel environment
 `cd clara_backend/`
-`python3 -m venv venv`
+`python3.6 -m venv venv`
+`sudo su -`
 `. venv/bin/activate`
 
 Install Python requirements
-`pip3 install -r requirements.txt`
+`pip3.6 install -r requirements.txt`
 
 Check if it runs
-`python3 runserver.py`
+`python3.6 runserver.py`
 
 ## Insert user in whitelist
 
@@ -79,7 +81,13 @@ whitelist in the database. When working on a blank database, or needing access t
 Admin interface for the first time you need to run the whitelist script to insert a
 new user.
 
-`python3 add_admin.py -u abc123@uit.no -n Your Name`
+`python3.6 add_admin.py -u abc123@uit.no -n Your Name`
+
+## WSGI Setup
+
+Copy the apache VirtualHost file to your Apache conf directory (may need editing)
+`cp conf/clara_backend.conf /etc/httpd/conf.d/`
+`systemctl restart httpd.service`
 
 ## Populate database with questions
 
@@ -90,9 +98,3 @@ in the script `insert.sh` and run it:
 
 Tip: Get the token by logging in to the Admin part of the frontend and inspect the local storage.
 The token is in the entry named `access_token_admin`.
-
-## WSGI Setup
-
-Copy the apache VirtualHost file to your Apache conf directory (may need editing)
-`cp conf/clara_backend.conf /etc/httpd/conf.d/`
-`systemctl restart httpd.service`
